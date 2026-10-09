@@ -81,6 +81,15 @@ On first start, Docker automatically:
 - Runs migrations and seeders
 - Starts Nginx, PHP-FPM, and the queue worker
 
+#### User roles
+
+The application supports two roles:
+
+- **Admin** — full access to the dashboard, inventory, purchases, finance, settings, and user management.
+- **Cashier** — access to Sales/POS and Customers only.
+
+An admin can assign a role when creating or editing a user. Existing users are migrated as admins.
+
 #### Useful Docker commands
 
 | Command | Description |

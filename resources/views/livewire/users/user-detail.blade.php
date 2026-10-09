@@ -33,6 +33,11 @@
                     </div>
 
                     <div class="space-y-1">
+                        <label class="text-sm font-medium leading-none text-muted-foreground">{{ __('Role') }}</label>
+                        <p class="text-sm text-foreground font-medium">{{ ucfirst($user->role) }}</p>
+                    </div>
+
+                    <div class="space-y-1">
                         <label class="text-sm font-medium leading-none text-muted-foreground">{{ __('Joined At') }}</label>
                         <p class="text-sm text-foreground font-medium">{{ $user->created_at->format('d M Y, H:i') }}</p>
                     </div>

@@ -245,19 +245,19 @@
                 <div class="logo-box">TB</div>
                 <div class="company-info">
                     <div class="company-name">{{ \App\Models\Setting::get('store_name', config('app.name')) }}</div>
-                    <div class="company-desc">Menjual: Bahan Bangunan, Alat Teknik, Cat, Dll.</div>
+                    <div class="company-desc">Building materials, hardware, paint, and more.</div>
                     <div class="company-address">
                         {{ \App\Models\Setting::get('store_address', 'Jl. Default No. 1') }}<br>
-                        HP. {{ \App\Models\Setting::get('store_phone', '-') }}
+                        Phone: {{ \App\Models\Setting::get('store_phone', '-') }}
                     </div>
                 </div>
             </div>
             <div class="header-right">
                 <div class="header-row">
-                    <span>{{ $sale->sale_date->locale('id')->isoFormat('dddd, D MMMM Y') }}</span>
+                    <span>{{ $sale->sale_date->locale('en')->isoFormat('dddd, D MMMM Y') }}</span>
                 </div>
                 <div class="header-row">
-                    <span class="header-label">Kepada Yth,</span>
+                    <span class="header-label">Customer:</span>
                     <span class="header-value">{{ $sale->customer->name ?? 'Guest' }}</span>
                 </div>
             </div>

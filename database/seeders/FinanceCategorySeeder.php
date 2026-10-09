@@ -17,14 +17,14 @@ class FinanceCategorySeeder extends Seeder
         $categories = [
             // Income
             [
-                'name' => 'Penjualan Produk',
+                'name' => 'Product Sales',
                 'type' => FinanceCategoryType::Income,
-                'description' => 'Pendapatan langsung dari penjualan produk toko.',
+                'description' => 'Direct income from store product sales.',
             ],
             [
-                'name' => 'Layanan Jasa',
+                'name' => 'Services',
                 'type' => FinanceCategoryType::Income,
-                'description' => 'Pendapatan dari layanan jasa service atau konsultasi.',
+                'description' => 'Income from repair, maintenance, or consulting services.',
             ],
             [
                 'name' => 'Investasi',
@@ -32,51 +32,51 @@ class FinanceCategorySeeder extends Seeder
                 'description' => 'Dividen atau bunga dari investasi modal.',
             ],
             [
-                'name' => 'Pendapatan Lain-lain',
+                'name' => 'Other Income',
                 'type' => FinanceCategoryType::Income,
-                'description' => 'Pendapatan di luar operasional utama.',
+                'description' => 'Income outside the core operations.',
             ],
 
             // Expenses
             [
-                'name' => 'Gaji Karyawan',
+                'name' => 'Employee Salaries',
                 'type' => FinanceCategoryType::Expense,
-                'description' => 'Biaya gaji bulanan dan tunjangan karyawan.',
+                'description' => 'Monthly salaries and employee benefits.',
             ],
             [
-                'name' => 'Sewa Gedung',
+                'name' => 'Building Rent',
                 'type' => FinanceCategoryType::Expense,
-                'description' => 'Biaya sewa toko atau gudang operasional.',
+                'description' => 'Rent for the store or operating warehouse.',
             ],
             [
-                'name' => 'Listrik & Air',
+                'name' => 'Electricity & Water',
                 'type' => FinanceCategoryType::Expense,
-                'description' => 'Tagihan utilitas bulanan.',
+                'description' => 'Monthly utility bills.',
             ],
             [
-                'name' => 'Internet & Telepon',
+                'name' => 'Internet & Telephone',
                 'type' => FinanceCategoryType::Expense,
-                'description' => 'Biaya komunikasi dan koneksi internet.',
+                'description' => 'Communication and internet connection costs.',
             ],
             [
-                'name' => 'Pemasaran & Iklan',
+                'name' => 'Marketing & Advertising',
                 'type' => FinanceCategoryType::Expense,
-                'description' => 'Biaya promosi, iklan sosial media, dan cetak.',
+                'description' => 'Promotion, social media advertising, and printing costs.',
             ],
             [
-                'name' => 'Perawatan & Perbaikan',
+                'name' => 'Maintenance & Repairs',
                 'type' => FinanceCategoryType::Expense,
-                'description' => 'Biaya maintenance aset dan peralatan.',
+                'description' => 'Maintenance costs for assets and equipment.',
             ],
             [
-                'name' => 'Transportasi & Logistik',
+                'name' => 'Transport & Logistics',
                 'type' => FinanceCategoryType::Expense,
-                'description' => 'Biaya bensin, pengiriman, dan perjalanan dinas.',
+                'description' => 'Fuel, delivery, and business travel costs.',
             ],
             [
-                'name' => 'Pembelian Stok',
+                'name' => 'Stock Purchases',
                 'type' => FinanceCategoryType::Expense,
-                'description' => 'Biaya pembelian barang dagangan (HPP).',
+                'description' => 'Costs of purchasing merchandise.',
             ],
         ];
 

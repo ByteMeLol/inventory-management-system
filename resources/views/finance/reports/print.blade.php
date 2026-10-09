@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Laporan Arus Kas - {{ $storeName }}</title>
+    <title>Cash Flow Report - {{ $storeName }}</title>
     <style>
         body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; line-height: 1.5; color: #333; margin: 0; padding: 40px; }
         .header-container { border-bottom: 2px solid #444; padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-start; }
@@ -154,7 +154,7 @@
             </tr>
             <tr class="summary-row-total">
                 <td class="text-right">Estimated Final Balance</td>
-                <td class="text-right">Rp {{ number_format($estimatedFinalBalance, 0, ',', '.') }}</td>
+                <td class="text-right">{{ format_money($estimatedFinalBalance) }}</td>
             </tr>
         </table>
     </div>

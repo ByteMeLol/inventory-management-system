@@ -12,28 +12,28 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
-                'name' => 'Material Dasar',
-                'description' => 'Bahan bangunan utama seperti pasir, semen, batu, bata, hebel, dan besi beton.'
+                'name' => 'Basic Materials',
+                'description' => 'Core building materials such as sand, cement, stone, bricks, blocks, and rebar.'
             ],
             [
-                'name' => 'Kayu & Atap',
-                'description' => 'Material kayu, triplek, kaso, serta penutup atap seperti genteng, asbes, seng, dan terpal.'
+                'name' => 'Wood & Roofing',
+                'description' => 'Wood, plywood, timber, and roofing materials such as tiles, asbestos, sheet metal, and tarpaulins.'
             ],
             [
-                'name' => 'Cat & Finishing',
-                'description' => 'Segala jenis cat (tembok/kayu/besi), thinner, pelapis anti bocor (no drop), dan lem.'
+                'name' => 'Paint & Finishing',
+                'description' => 'Paint for walls, wood, and metal, plus thinner, waterproofing, and adhesive products.'
             ],
             [
-                'name' => 'Lantai & Dinding',
-                'description' => 'Penutup lantai dan dinding termasuk keramik, granit, plint, dan lis profil (kuku macan).'
+                'name' => 'Flooring & Walls',
+                'description' => 'Floor and wall coverings including ceramic, granite, skirting, and trim profiles.'
             ],
             [
-                'name' => 'Pipa & Listrik',
-                'description' => 'Instalasi air (pipa PVC, kran, toren) dan instalasi listrik (kabel, lampu, saklar).'
+                'name' => 'Plumbing & Electrical',
+                'description' => 'Plumbing supplies such as PVC pipes, faucets, and tanks, plus cables, lights, and switches.'
             ],
             [
-                'name' => 'Paku & Alat',
-                'description' => 'Barang kecil/receh seperti paku, baut, sekrup, engsel, gembok, dan peralatan tukang.'
+                'name' => 'Nails & Hardware',
+                'description' => 'Small hardware such as nails, bolts, screws, hinges, padlocks, and tools.'
             ],
         ];
 

@@ -53,3 +53,9 @@ services:
 volumes:
   storage_data:
   postgres_data:
+
+networks:
+  default:
+  proxy:
+    external: true
+    name: proxy

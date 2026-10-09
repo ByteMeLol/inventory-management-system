@@ -69,9 +69,9 @@ class SettingForm extends Component
             'store_phone' => '-',
             'opening_balance_date' => now()->startOfYear()->toDateString(),
             'opening_balance_amount' => '0',
-            'currency_symbol' => '$',
+            'currency_symbol' => 'TZS',
             'currency_position' => 'left',
-            'currency_fraction_digits' => '2',
+            'currency_fraction_digits' => '0',
             'currency_thousand_separator' => ',',
             'currency_decimal_separator' => '.',
         ];

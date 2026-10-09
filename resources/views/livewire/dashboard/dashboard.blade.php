@@ -273,7 +273,7 @@
         let salesChart = null;
         let cashFlowChart = null;
         
-        const currencySymbol = "{{ \App\Models\Setting::get('currency_symbol', 'Rp') }}";
+        const currencySymbol = "{{ \App\Models\Setting::get('currency_symbol', 'TZS') }}";
         const currencyPosition = "{{ \App\Models\Setting::get('currency_position', 'left') }}";
 
         const formatMoney = (val) => {

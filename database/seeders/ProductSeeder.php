@@ -12,12 +12,20 @@ class ProductSeeder extends Seeder
 {
     public function run(): void
     {
-        // Cache ID untuk performa (Slug Kategori & Simbol Unit)
+        // Cache IDs for efficient category and unit lookups.
         $cats = Category::pluck('id', 'slug')->toArray();
         $units = Unit::pluck('id', 'symbol')->toArray();
 
-        // Helper closure untuk ambil ID
-        $getCat = fn($name) => $cats[Str::slug($name)] ?? array_first($cats);
+        $categoryNames = [
+            'Material Dasar' => 'Basic Materials',
+            'Kayu & Atap' => 'Wood & Roofing',
+            'Cat & Finishing' => 'Paint & Finishing',
+            'Lantai & Dinding' => 'Flooring & Walls',
+            'Pipa & Listrik' => 'Plumbing & Electrical',
+            'Paku & Alat' => 'Nails & Hardware',
+        ];
+
+        $getCat = fn($name) => $cats[Str::slug($categoryNames[$name] ?? $name)] ?? array_first($cats);
         $getUnit = fn($sym) => $units[$sym] ?? array_first($units);
 
         $products = [

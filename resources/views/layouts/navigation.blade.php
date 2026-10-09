@@ -4,7 +4,7 @@
         <nav class="hidden items-center justify-between lg:flex">
             <div class="flex items-center gap-6">
                 <!-- Logo -->
-                <a href="{{ route('dashboard') }}" class="flex items-center gap-2">
+                <a href="{{ route(Auth::user()->isAdmin() ? 'dashboard' : 'sales.create') }}" class="flex items-center gap-2">
                     <x-application-logo class="w-8 h-8 fill-current text-foreground" />
                     <span class="text-md font-semibold tracking-tighter text-foreground">
                         {{ config('app.name', 'Laravel') }}
@@ -15,10 +15,12 @@
                 <div class="flex items-center">
                     <div class="flex flex-row gap-1">
                         <!-- Dashboard Link -->
+                        @if(Auth::user()->isAdmin())
                         <a href="{{ route('dashboard') }}" class="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 {{ request()->routeIs('dashboard') ? 'bg-accent/50 text-accent-foreground' : 'bg-background' }}">
                             <x-heroicon-o-squares-2x2 class="mr-2 h-4 w-4" />
                             Dashboard
                         </a>
+                        @endif
 
                         <!-- Sales Dropdown -->
                         <x-nav-dropdown active="{{ request()->routeIs(['sales.*', 'customers.*']) }}">
@@ -41,6 +43,7 @@
                             </x-slot>
                         </x-nav-dropdown>
 
+                        @if(Auth::user()->isAdmin())
                         <!-- Purchases Dropdown -->
                         <x-nav-dropdown active="{{ request()->routeIs(['purchases.*', 'suppliers.*']) }}">
                             <x-slot name="icon">
@@ -76,7 +79,9 @@
                                 </x-dropdown-link>
                             </x-slot>
                         </x-nav-dropdown>
+                        @endif
 
+                        @if(Auth::user()->isAdmin())
                         <!-- Users Link -->
                         <a href="{{ route('users.index') }}" class="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 {{ request()->routeIs('users.*') ? 'bg-accent/50 text-accent-foreground' : 'bg-background' }}">
                             <x-heroicon-o-users class="mr-2 h-4 w-4" />
@@ -103,6 +108,7 @@
                                 </x-dropdown-link>
                             </x-slot>
                         </x-nav-dropdown>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -118,13 +124,17 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        @if(Auth::user()->isAdmin())
                         <x-dropdown-link :href="route('profile.index')" :active="request()->routeIs('profile.*')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
+                        @endif
 
+                        @if(Auth::user()->isAdmin())
                         <x-dropdown-link :href="route('settings.index')" :active="request()->routeIs('settings.*')">
                             {{ __('Settings') }}
                         </x-dropdown-link>
+                        @endif
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
@@ -145,7 +155,7 @@
         <div class="block lg:hidden">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
-                <a href="{{ route('dashboard') }}" class="flex items-center gap-2">
+                <a href="{{ route(Auth::user()->isAdmin() ? 'dashboard' : 'sales.create') }}" class="flex items-center gap-2">
                     <x-application-logo class="w-8 h-8 fill-current text-foreground" />
                 </a>
 
@@ -180,7 +190,7 @@
 
                 <div class="flex flex-col gap-6">
                     <div class="flex items-center justify-between">
-                        <a href="{{ route('dashboard') }}" class="flex items-center gap-2">
+                        <a href="{{ route(Auth::user()->isAdmin() ? 'dashboard' : 'sales.create') }}" class="flex items-center gap-2">
                             <x-application-logo class="w-8 h-8 fill-current text-foreground" />
                             <span class="text-lg font-semibold">{{ config('app.name') }}</span>
                         </a>
@@ -191,7 +201,9 @@
                     </div>
 
                     <div class="flex w-full flex-col gap-4">
+                        @if(Auth::user()->isAdmin())
                         <a href="{{ route('dashboard') }}" class="text-md font-semibold hover:underline {{ request()->routeIs('dashboard') ? 'text-primary' : '' }}">Dashboard</a>
+                        @endif
 
                         <!-- Mobile Sales Accordion -->
                         <div x-data="{ expanded: {{ request()->routeIs(['sales.*', 'customers.*']) ? 'true' : 'false' }} }" class="border-b-0">
@@ -208,6 +220,7 @@
                             </div>
                         </div>
 
+                        @if(Auth::user()->isAdmin())
                         <!-- Mobile Purchases Accordion -->
                         <div x-data="{ expanded: {{ request()->routeIs(['purchases.*', 'suppliers.*']) ? 'true' : 'false' }} }" class="border-b-0">
                             <button @click="expanded = !expanded" class="flex flex-1 items-center justify-between py-0 font-semibold transition-all hover:underline [&[data-state=open]>svg]:rotate-180 w-full text-left text-md {{ request()->routeIs(['purchases.*', 'suppliers.*']) ? 'text-primary' : '' }}">
@@ -254,17 +267,23 @@
                             </div>
                         </div>
 
+                        @endif
+
 
                     <!-- Mobile User Menu -->
                         <div class="pt-4 mt-4 border-t border-border">
                             <div class="font-medium text-base text-foreground mb-2">{{ Auth::user()->name }}</div>
                             <div class="flex flex-col gap-3">
+                                @if(Auth::user()->isAdmin())
                                 <a href="{{ route('profile.index') }}" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input h-9 px-4 py-2 w-full {{ request()->routeIs('profile.*') ? 'bg-accent text-accent-foreground' : 'bg-background hover:bg-accent hover:text-accent-foreground' }}">
                                     Profile
                                 </a>
+                                @endif
+                                @if(Auth::user()->isAdmin())
                                 <a href="{{ route('settings.index') }}" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input h-9 px-4 py-2 w-full {{ request()->routeIs('settings.*') ? 'bg-accent text-accent-foreground' : 'bg-background hover:bg-accent hover:text-accent-foreground' }}">
                                     Settings
                                 </a>
+                                @endif
                                 <form method="POST" action="{{ route('logout') }}" class="w-full">
                                     @csrf
                                     <button type="submit" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 w-full">

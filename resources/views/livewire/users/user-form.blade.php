@@ -41,6 +41,15 @@
                 placeholder="email@example.com"
             />
 
+            <div class="space-y-2">
+                <x-input-label for="role" :value="__('Role')" required />
+                <select id="role" wire:model="role" class="block w-full rounded-md border-input bg-background shadow-sm focus:border-ring focus:ring-ring sm:text-sm" required>
+                    <option value="cashier">Cashier</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <x-input-error :messages="$errors->get('role')" />
+            </div>
+
             <!-- Password -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="space-y-2">
